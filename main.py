@@ -13,6 +13,7 @@ a = '\u2135'
 # gets the transactions from the user's own full-node (see API_BASE)
 def getBlockTsTransactions(session, start, end):
     txs = 0
+    # multiplying by 1000 to convert s (unix ts) to ms
     response = session.get(f"{API_BASE}/blockflow?fromTs={start * 1000}&toTs={end * 1000}")
 
     allBlocks = response.json()
@@ -24,6 +25,7 @@ def getBlockTsTransactions(session, start, end):
                         txs += 1
     else:
         print(f"There was an error code. See error: {response.status_code}")
+        return -1
 
     # return transaction array
     return txs
@@ -49,7 +51,10 @@ def main():
             s = requests.Session()
             s.headers.update(header)
             # getting the number of transactions
+            # returns -1 on error status code
             numTxs = getBlockTsTransactions(s, tconv(datetime.fromtimestamp(currTime) - timedelta(hours=1)), currTime)
+            if (numTxs == -1):
+                break
             vals.write(f'{numTxs}, {currTime}\n')
             print(f'{numTxs}, {currTime}')
             newTime = currTime + timedelta(hours=1).seconds
@@ -65,6 +70,7 @@ def main():
 
     f.close()
     vals.close()
+    print("\nProgram finished.\n")
 
 if __name__ == "__main__":
     main()

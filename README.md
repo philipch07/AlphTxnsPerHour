@@ -14,6 +14,8 @@ There are a couple example files included. In the `key.py.example` file, you nee
 
 Also, you will need to add `alephium.api.blockflow-fetch-max-age=290000000000` to the full-node configuration file.
 
+The `txnslist.csv.example` file contains all the transactions up `1650146400`, or `Sat Apr 16 2022 18:00:00 GMT-0400 (Eastern Daylight Time)`. Note that I used `1636347600` as my starting time, instead of `1636383298` - the timestamp of the first block.
+
 # Related Links
 
 https://github.com/alephium 
