@@ -1,6 +1,7 @@
 #private stuff
 key.py
 currTxnTime.txt
+txnslist.csv
 
 # autogen python stuff
 __pycache__

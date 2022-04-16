@@ -12,6 +12,8 @@ Some of their code was adapted for this project.
 ---
 There are a couple example files included. In the `key.py.example` file, you need to insert your own API key that you create for your own full-node. In the `currTxnTime.txt.example` file, you can insert any time value, but I decided to go with the very start of the day of the first block timestamp of Alephium.
 
+Also, you will need to add `alephium.api.blockflow-fetch-max-age=290000000000` to the full-node configuration file.
+
 # Related Links
 
 https://github.com/alephium 
