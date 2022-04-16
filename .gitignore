@@ -1,0 +1,6 @@
+#private stuff
+key.py
+currTxnTime.txt
+
+# autogen python stuff
+__pycache__
