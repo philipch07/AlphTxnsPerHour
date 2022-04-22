@@ -1,5 +1,6 @@
 from datetime import datetime, timedelta
 from key import header
+from parseData import parse, graph
 import requests
 
 API_BASE = "http://127.0.0.1:12973"
@@ -7,7 +8,7 @@ a = '\u2135'
 #GENESIS_TS = 1231006504
 #FIRST_BLOCK_TS = 1636383298
 #############################
-#MY_STARTING_TS = 1636347600#
+#MY_STARTING_TS = 1636416000#
 #############################
 
 # gets the transactions from the user's own full-node (see API_BASE)
@@ -27,16 +28,18 @@ def getBlockTsTransactions(session, start, end):
         print(f"There was an error code. See error: {response.status_code}")
         return -1
 
-    # return transaction array
+    # return number of transactions
     return txs
 
 def tconv(a):
     return int(datetime.timestamp(a))
 
-def main():
+def collect():
     # start where we leave off
     f = open("currTxnTime.txt", "r+")
     # we store the txns and the time here
+    # NOTE: the first line of the .csv should be "txn,timeutc". This is important for parsing the data from the csv.
+    # I won't be automatically doing that in the code, so you should prepare the .csv file in that way.
     vals = open("txnslist.csv", "a")
 
     # gets the number of txns in the past hour and stores it in the csv
@@ -52,25 +55,30 @@ def main():
             s.headers.update(header)
             # getting the number of transactions
             # returns -1 on error status code
-            numTxs = getBlockTsTransactions(s, tconv(datetime.fromtimestamp(currTime) - timedelta(hours=1)), currTime)
+            numTxs = getBlockTsTransactions(s, currTime - 3600, currTime)
             if (numTxs == -1):
-                break
-            vals.write(f'{numTxs}, {currTime}\n')
-            print(f'{numTxs}, {currTime}')
-            newTime = currTime + timedelta(hours=1).seconds
+                return
+            vals.write(f'{numTxs},{currTime}\n')
+            print(f'{numTxs}, {datetime.fromtimestamp(currTime).strftime("%m/%d/%Y, %H")}')
+            newTime = currTime + 3600
             f.seek(0)
             f.write(str(newTime))
             f.seek(0)
 
-        print(f'{a}{a}{a}{a}{a}{a}{a}{a}{a}{a}{a}{a}{a}{a}')
+        print(f'\n{a}{a}{a}{a}{a}{a}{a}{a}{a}{a}{a}{a}{a}{a}')
         print("All Caught Up!")
         print(f'{a}{a}{a}{a}{a}{a}{a}{a}{a}{a}{a}{a}{a}{a}')
+        print("\nData collected.\n")
     except KeyboardInterrupt:
-        print('Interrupted. Terminating program.')
+        print('Interrupted. Terminating collection.')
 
     f.close()
     vals.close()
-    print("\nProgram finished.\n")
+
+def main():
+    collect()
+    parse()
+    # graph()
 
 if __name__ == "__main__":
     main()
