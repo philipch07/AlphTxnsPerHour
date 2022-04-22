@@ -66,7 +66,7 @@ def graph():
         fixed_max = False,
         steps_per_period = 30,
         period_length = 500,
-        end_period_pause = 100,
+        end_period_pause = 10,
         interpolate_period = False,
         period_label = {'x': .98, 'y': .3, 'ha': 'right', 'va': 'center'},
         period_template = '%B %d, %Y',

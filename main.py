@@ -35,6 +35,7 @@ def tconv(a):
     return int(datetime.timestamp(a))
 
 def collect():
+    print("Collecting data...")
     # start where we leave off
     f = open("currTxnTime.txt", "r+")
     # we store the txns and the time here
@@ -78,7 +79,7 @@ def collect():
 def main():
     collect()
     parse()
-    # graph()
+    graph()
 
 if __name__ == "__main__":
     main()

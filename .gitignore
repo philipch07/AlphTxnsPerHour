@@ -6,3 +6,6 @@ fdata.csv
 
 # autogen python stuff
 __pycache__
+
+# the video
+visualizedTxData.mp4
