@@ -4,7 +4,7 @@ UPenn CIS233 (2022) Final Project
 Reifon Chiu, Ruth Chung, Di Lu
 
 
-
+https://user-images.githubusercontent.com/59272129/164774884-0585f252-00e1-43ef-9781-2b43b263ecfb.mp4
 
 
 The main idea of our project will be to measure the volume of transactions of a (relatively) new cryptocurrency called “Alephium”, which has the ability to have an incredibly high transaction bandwidth of 10,000 transactions per second. Due to this super-high bandwidth, we want to see when transactions tend to occur. This is also unique compared to Bitcoin or Ethereum because of the relative newness of the cryptocurrency, which means that there may be less transactions of larger value, but more transactions overall. The data that we will try to visually represent might be hosted on a website (depending on our ability to create one in time by the due date of the original project) and may be updated live; however, since this is most likely not possible, we decided to stick to some sort of animated showcase of the data.
