@@ -4,7 +4,7 @@ UPenn CIS233 (2022) Final Project
 Reifon Chiu, Ruth Chung, Di Lu
 
 
-https://user-images.githubusercontent.com/59272129/164610653-d1175fc2-4209-4d74-8773-936ebf9eb914.mp4
+
 
 
 The main idea of our project will be to measure the volume of transactions of a (relatively) new cryptocurrency called “Alephium”, which has the ability to have an incredibly high transaction bandwidth of 10,000 transactions per second. Due to this super-high bandwidth, we want to see when transactions tend to occur. This is also unique compared to Bitcoin or Ethereum because of the relative newness of the cryptocurrency, which means that there may be less transactions of larger value, but more transactions overall. The data that we will try to visually represent might be hosted on a website (depending on our ability to create one in time by the due date of the original project) and may be updated live; however, since this is most likely not possible, we decided to stick to some sort of animated showcase of the data.
@@ -23,7 +23,7 @@ There are a couple example files included. In the `key.py.example` file, you nee
 
 Also, you will need to add `alephium.api.blockflow-fetch-max-age=290000000000` to the full-node configuration file.
 
-The `txnslist.csv.example` file contains all the transactions up `1650603600`, or `Fri Apr 22 2022 01:00:00 GMT-0400 (Eastern Daylight Time)`. Note that I used `1636416000` as my starting time, instead of `1636383298` - the timestamp of the first block. I used `1636416000` because that's the first hour of transactions for Alephium.
+The `txnslist.csv.example` file contains all the transactions up `1650650400`, or `Fri Apr 22 2022 14:00:00 GMT-0400 (Eastern Daylight Time)`. Note that I used `1636416000` as my starting time, instead of `1636383298` - the timestamp of the first block. I used `1636416000` because that's the first hour of transactions for Alephium.
 
 # Related Links
 
