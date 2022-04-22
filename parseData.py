@@ -56,7 +56,6 @@ def parse():
 def graph():
     print("Creating graph...")
     # https://github.com/dexplo/bar_chart_race
-    tot = 0
     df = pd.read_csv('fdata.csv', index_col = 'date', parse_dates=['date'])
     df.tail()
     bcr.bar_chart_race(
